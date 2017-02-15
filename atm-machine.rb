@@ -9,9 +9,6 @@
 
     @balance = 100
 
-    puts "Would you like to 1. display, 2. deposit, 3. withdraw or 4. exit?"
-    input = gets.chomp.to_i
-
     def display
       puts "Your current balance is $#{@balance}"
     end
@@ -37,24 +34,18 @@
 
 
     while true
+      puts "Would you like to 1. display, 2. deposit, 3. withdraw or 4. exit?"
+      input = gets.chomp.to_i
       if input == 1
         display
-        puts "Would you like to 1. display, 2. deposit, 3. withdraw or 4. exit?"
-        input = gets.chomp.to_i
       elsif input == 2
         deposit
-        puts "Would you like to 1. display, 2. deposit, 3. withdraw or 4. exit?"
-        input = gets.chomp.to_i
       elsif input == 3
         withdraw
-        puts "Would you like to 1. display, 2. deposit, 3. withdraw or 4. exit?"
-        input = gets.chomp.to_i
       elsif input == 4
         break
       else
         puts "Please enter a valid a number"
-        puts "Would you like to 1. display, 2. deposit, 3. withdraw or 4. exit?"
-        input = gets.chomp.to_i
       end
     end
-    puts "Thank you for using this ATM"
+    puts "Thank you for using this AlexBank ATM"
