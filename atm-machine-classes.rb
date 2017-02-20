@@ -22,7 +22,7 @@ class Account
     puts 'Please enter an amount to withdraw.'
     @amount = gets.chomp.to_i
     if @amount < atm.bank_balance
-      @acct_balance += @amount
+      @acct_balance -= @amount
       atm.bank_balance -= @amount
       puts "Hello #{@acct_name}, you withdrew $#{@amount}."
       puts "This is your current balance: $#{@acct_balance}."
@@ -39,7 +39,7 @@ class Account
       @balance = 0
       return
     end
-    @acct_balance -= @amount
+    @acct_balance += @amount
     atm.bank_balance += @amount
     puts "Hello #{@acct_name}, you deposited $#{@amount}."
     puts "This is your current balance: $#{@acct_balance}."
