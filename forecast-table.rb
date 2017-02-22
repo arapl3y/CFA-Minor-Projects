@@ -1,9 +1,9 @@
 
 # Forecast Table Generator
 
-require './progress-bar-component'
 require 'paint'
 require 'terminal-table'
+require_relative 'progress-bar-component'
 
 # Questioner class
 class ForecastQuestioner
@@ -27,7 +27,7 @@ class ForecastQuestioner
     @days = days.join("\n")
     rows = []
     rows << [@days, temp_c, temp_f]
-    table = Terminal::Table.new title: 'Weather Forecast', headings: %w(Day Celsius Fahrenheit), rows: rows
+    table = Terminal::Table.new title: 'Weather Forecast', headings: ["Day", "Celsius", "Fahrenheit"], rows: rows
     puts table
   end
 
@@ -51,10 +51,10 @@ class ForecastQuestioner
     answers.each do |answer|
       if answer <= 28
         temp_c << Paint[answer, :blue]
-        temp_f << (Paint[answer * 9 / 5 + 32, :blue])
+        temp_f << Paint[answer * 9 / 5 + 32, :blue]
       elsif answer >= 28
         temp_c << Paint[answer, :red]
-        temp_f << (Paint[answer * 9 / 5 + 32, :red])
+        temp_f << Paint[answer * 9 / 5 + 32, :red]
       end
     end
     @temp_c = temp_c.join("\n")
